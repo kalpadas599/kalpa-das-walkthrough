@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalpa Das | Full Stack Developer &amp; AI Builder</title>
+<meta name="description" content="Kalpa Das is a full stack web developer from Kolkata building web apps, AI tools and mobile apps.">
+<link rel="icon" href="images/logo-kd-r.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Source+Serif+4:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand"><span class="kmark">K</span><span>Kalpa Das</span></a>
+    <nav id="menu" class="links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#proof">Experience</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn ghost" href="images/Kalpa Das_Latest_Resume.pdf" download>Download CV</a>
+      <a class="btn solid" href="#contact">Hire Me</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- SCROLL STORY: 3D scene sits behind, cards sit in front -->
+<section id="story">
+  <div id="top"></div>
+  <div class="overlay" id="overlay" data-ch="0">
+    <div class="bubble" id="bubble"></div>
+    <div class="card main" id="mainCard"></div>
+    <div class="card brand-card" id="brandCard"></div>
+    <div class="scroll-hint" id="hint"><i class="fa-solid fa-arrow-down"></i> Scroll</div>
+  </div>
+</section>
+
+<main class="page">
+
+<section class="marquee-sec">
+  <p class="center muted small">Tools I build with</p>
+  <div class="marquee"><div class="track" id="track"></div></div>
+</section>
+
+<section id="about" class="sec">
+  <div class="wrap about-box">
+    <img src="images/pur_kd.jpg" alt="Kalpa Das">
+    <div>
+      <h2>About me</h2>
+      <p>Results-driven full stack web developer with hands-on experience building scalable applications using Java, Flask, MongoDB and Whisper AI. I recently completed an AI internship with Infosys Springboard and was a finalist at the Smart Bengal Hackathon 2024. I enjoy real-time analytics, API integration, responsive design and cloud platforms (Azure certified).</p>
+      <p class="muted">B.Tech, RCC Institute of Information Technology, 2022 to 2026. Based in Kolkata, India.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="#contact">Start a project</a>
+        <a class="btn ghost" href="images/Kalpa Das_Latest_Resume.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="sec alt">
+  <div class="wrap">
+    <h2 class="sec-title center">Work I'm proud of.</h2>
+    <p class="sec-sub center">Real projects with real code on GitHub.</p>
+    <div id="projGrid" class="proj-grid"></div>
+    <div class="center"><button class="btn ghost lg" id="moreBtn">Show more projects</button></div>
+  </div>
+</section>
+
+<section id="proof" class="sec">
+  <div class="wrap">
+    <h2 class="sec-title center">Experience &amp; credentials.</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-t="exp">Experience</button>
+      <button class="tab" data-t="cert">Certifications</button>
+      <button class="tab" data-t="edu">Education</button>
+    </div>
+
+    <div class="pane on" id="exp">
+      <div class="timeline">
+        <div><b>Jul to Oct 2025</b><h4>Cloud with DevOps Training</h4><p>Cloud fundamentals, DevOps practices and deployment workflows.</p></div>
+        <div><b>Feb to Apr 2025</b><h4>Infosys Springboard Internship 5.0</h4><p>AI internship focused on real-world machine learning projects.</p></div>
+        <div><b>Nov to Dec 2024</b><h4>Pinnacle Labs Internship</h4><p>Hands-on web development internship.</p></div>
+        <div><b>2024</b><h4>Smart Bengal Hackathon (Finalist)</h4><p>Automated cricket highlight generation using deep learning.</p></div>
+        <div><b>2024</b><h4>Smart India Hackathon</h4><p>Scholarship aggregation and disbursement platform with AI scanners.</p></div>
+        <div><b>2023</b><h4>Smart India Hackathon</h4><p>Cross-platform mental health app.</p></div>
+      </div>
+    </div>
+
+    <div class="pane" id="cert">
+      <div class="cert-grid">
+        <a href="https://www.linkedin.com/posts/kalpadas_aws-devops-cert-activity-7416011556846510080-paX1" target="_blank" rel="noopener"><i class="fa-solid fa-cloud"></i><b>Cloud with DevOps</b><span>Cloud and deployment workflows</span></a>
+        <a href="https://catalog-education.oracle.com/pls/certview/sharebadge?id=48B917155727CA1077A753BF562C665C5F288131DC1F2F188ACB8EE2C86789C8" target="_blank" rel="noopener"><i class="fa-solid fa-certificate"></i><b>Oracle Cloud AI Foundations Associate</b><span>1Z0-1122-25, 2025</span></a>
+        <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7379945505554034688/" target="_blank" rel="noopener"><i class="fa-brands fa-microsoft"></i><b>MeitY Cloud Computing Certification</b><span>Core Azure services and governance</span></a>
+        <a href="https://www.hackerrank.com/certificates/8cbc29e85ee9" target="_blank" rel="noopener"><i class="fa-solid fa-database"></i><b>HackerRank SQL</b><span>Queries, relationships, aggregators</span></a>
+        <a href="https://www.hackerrank.com/certificates/120e30eb08d4" target="_blank" rel="noopener"><i class="fa-brands fa-python"></i><b>HackerRank Python Basic</b><span>Types, control flow, classes</span></a>
+        <a href="https://drive.google.com/file/d/1HkoJPIN2grTK9xFG-n3Xv-mDgPsv2fdc/view?usp=sharing" target="_blank" rel="noopener"><i class="fa-solid fa-trophy"></i><b>Smart India Hackathon 2024</b><span>PMSSS scholarship portal</span></a>
+      </div>
+    </div>
+
+    <div class="pane" id="edu">
+      <div class="timeline">
+        <div><b>2022 to 2026</b><h4>RCC Institute of Information Technology</h4><p>B.Tech</p></div>
+        <div><b>2020 to 2022</b><h4>Madhyamgram High School</h4><p>Higher secondary</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="sec alt">
+  <div class="wrap">
+    <h2 class="sec-title center">Work with me.</h2>
+    <p class="sec-sub center">Starting prices for freelance projects. Final quote depends on scope.</p>
+    <div class="price-grid">
+      <article class="price">
+        <h3>Starter</h3><p class="muted">Get online fast</p>
+        <div class="amt">₹4,000<small> to ₹16,000</small></div>
+        <ul><li>Template-based portfolio or landing page</li><li>Mobile responsive</li><li>Contact form</li><li>Basic deployment</li></ul>
+        <a class="btn ghost" href="#contact">Get a quote</a>
+      </article>
+      <article class="price pop">
+        <span class="badge">Most popular</span>
+        <h3>Custom</h3><p class="muted">Built for your brand</p>
+        <div class="amt">₹16,000<small> to ₹65,000</small></div>
+        <ul><li>Custom design and UI/UX</li><li>Responsive on every device</li><li>Forms, APIs and database</li><li>Deployment and handover</li></ul>
+        <a class="btn solid" href="#contact">Get a quote</a>
+      </article>
+      <article class="price">
+        <h3>Advanced</h3><p class="muted">Full products</p>
+        <div class="amt">₹65,000+</div>
+        <ul><li>Animations and CMS</li><li>AI features (voice, RAG, analytics)</li><li>SEO and branding</li><li>Cloud setup with CI/CD</li></ul>
+        <a class="btn ghost" href="#contact">Talk to me</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="sec">
+  <div class="wrap contact">
+    <div class="contact-copy">
+      <h2>Let's build something people find.</h2>
+      <p class="lead">Tell me about your project. I usually reply within a day.</p>
+      <p><i class="fa-solid fa-paper-plane"></i> <a href="mailto:kalpadas599@gmail.com">kalpadas599@gmail.com</a></p>
+      <p><i class="fa-solid fa-phone"></i> <a href="tel:+916290271947">+91 62902 71947</a></p>
+      <div class="social">
+        <a href="https://www.linkedin.com/in/kalpadas/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/kalpadas599" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.instagram.com/_kalpa_das/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100085882539516" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <form id="cform" class="cform" name="submit-to-google-sheet">
+      <input type="text" name="Name" placeholder="Your name" required>
+      <input type="email" name="Email" placeholder="Your email" required>
+      <textarea name="Message" rows="5" placeholder="What are you building?" required></textarea>
+      <button class="btn solid lg" type="submit">Send message</button>
+      <span id="msg" role="status"></span>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>© <span id="yr"></span> Kalpa Das. All rights reserved.</span>
+    <span class="muted">Built in Kolkata, India</span>
+  </div>
+</footer>
+</main>
+
+<script src="js/three.min.js"></script>
+<script src="js/scene.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
