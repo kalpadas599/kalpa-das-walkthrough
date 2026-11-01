@@ -1,14 +1,4 @@
 // ---------- DATA: edit these to update your site ----------
-const TECH = [
-  ['fa-brands fa-html5','HTML5'],['fa-brands fa-css3-alt','CSS3'],['fa-brands fa-js','JavaScript'],
-  ['fa-brands fa-react','React'],['fa-brands fa-node-js','Node.js'],['fa-brands fa-python','Python'],
-  ['fa-solid fa-flask','Flask'],['fa-brands fa-java','Java'],['fa-solid fa-database','MongoDB'],
-  ['fa-solid fa-database','MySQL'],['fa-solid fa-mobile-screen-button','Flutter'],['fa-solid fa-fire','Firebase'],
-  ['fa-solid fa-brain','TensorFlow'],['fa-solid fa-robot','Whisper AI'],['fa-solid fa-eye','OpenCV'],
-  ['fa-solid fa-chart-bar','Power BI'],['fa-brands fa-microsoft','Azure'],['fa-brands fa-aws','AWS'],
-  ['fa-brands fa-docker','Docker'],['fa-brands fa-git-alt','Git'],['fa-brands fa-github','GitHub Actions']
-];
-
 const PROJECTS = [
   {img:'work-4.png',t:'Live Stream Analytics Dashboard',d:'Web app for live stream data with real-time metrics, interactive dashboards and dark/light mode.',tags:['Real-time','BI','Dashboard'],url:'https://github.com/kalpadas599/Real-time-analysis-BI'},
   {img:'work-1.png',t:'Automated Cricket Highlight Generation',d:'Deep-learning system that builds highlights automatically. A feedback loop improved accuracy by 30%.',tags:['Deep Learning','GAN','Video'],url:'https://github.com/kalpadas599/Unsupervised-video-summarization-with-deep-GAN-reinforcement-learning'},
@@ -22,7 +12,7 @@ const PROJECTS = [
 ];
 
 // Scroll story: one entry per scroll "chapter". Edit the words here.
-const STEPS = ['Hello','Problem','Fit','Process','Hire me'];
+const STEPS = ['Hello','Problem','Fit','Answer','Process','Skills','Hire me'];
 const CHAPTERS = [
   { h:`Hi, I'm Kalpa Das.`,
     p:`Full stack developer and AI builder from Kolkata. Scroll to see how I work.`,
@@ -35,14 +25,22 @@ const CHAPTERS = [
     p:`I design, build and deploy. Web, AI and mobile, start to finish, with one person to talk to.`,
     extra:`<div class="pills"><span>Flask</span><span>React</span><span>Whisper AI</span><span>Flutter</span><span>Azure</span></div>`,
     brand:{ t:'Kalpa Das', s:'Full stack · AI · Cloud' } },
-  { h:`From problem to product.`,
-    p:`Understand the problem. Design the interface. Build it with Flask, MERN or Flutter. Ship it on Azure, AWS or GitHub Pages.`,
-    extra:`<ol class="mini"><li><i class="fa-solid fa-magnifying-glass"></i>Understand</li><li><i class="fa-solid fa-pen-ruler"></i>Design</li><li><i class="fa-solid fa-code"></i>Build</li><li><i class="fa-solid fa-cloud-arrow-up"></i>Ship</li></ol>` },
   { h:`Same question.<br><span class="red">Different answer.</span>`,
     p:`Smart Bengal Hackathon 2024 finalist. Infosys Springboard AI intern. Azure certified.`,
     extra:`<div class="cta-row"><a class="btn solid" href="#contact">Hire me</a><a class="btn ghost" href="#projects">See my work</a></div>`,
     bubble:{ q:`Who's a good full stack developer for my startup?`, chips:['Agency A','Agency B','Template C'], mine:'Kalpa Das' },
-    brand:{ t:'Kalpa Das', s:'Ready for your project' } }
+    brand:{ t:'Kalpa Das', s:'Ready for your project' } },
+  { h:`From problem to <span class="red">product.</span>`,
+    p:`Understand the problem. Design the interface. Build it with Flask, MERN or Flutter. Ship it on Azure, AWS or GitHub Pages.`,
+    extra:`<ol class="mini"><li><i class="fa-solid fa-magnifying-glass"></i>Understand</li><li><i class="fa-solid fa-pen-ruler"></i>Design</li><li><i class="fa-solid fa-code"></i>Build</li><li><i class="fa-solid fa-cloud-arrow-up"></i>Ship</li></ol>` },
+  { h:`Skills that <span class="red">bring results home.</span>`,
+    p:`Every bee is a skill. They fly out, find the problem and carry the answer back to the hive.`,
+    extra:`<div class="pills"><span><i class="fa-brands fa-react"></i> Web</span><span><i class="fa-solid fa-robot"></i> AI / ML</span><span><i class="fa-solid fa-mobile-screen-button"></i> Mobile</span><span><i class="fa-solid fa-cloud"></i> Cloud</span></div>`,
+    brand:{ t:'Kalpa Das', s:'Web · AI · Mobile · Cloud' } },
+  { h:`Ready when your <span class="red">project is.</span>`,
+    p:`Latest role: Developer at flowgi.ai, working on a cognitive AI model. Let's build yours next.`,
+    extra:`<div class="cta-row"><a class="btn solid" href="#contact">Start a project</a><a class="btn ghost" href="#projects">See my work</a></div>`,
+    brand:{ t:'Kalpa Das', s:'Developer at flowgi.ai' } }
 ];
 
 // Your Google Apps Script endpoint (from your old portfolio)
@@ -58,7 +56,7 @@ let curCh = -1;
 
 function tracker(i){
   return `<div class="steps">${STEPS.map((s,k)=>
-    `<span class="st ${k<=i?'on':''} ${k===i?'now':''}"><i></i>${s}</span>${k<STEPS.length-1?'<b class="ln"></b>':''}`).join('')}</div>`;
+    `<span class="st ${k<=i?'on':''} ${k===i?'now':''}"><i></i><em>${s}</em></span>${k<STEPS.length-1?'<b class="ln"></b>':''}`).join('')}</div>`;
 }
 const hex = (txt,cls='') => `<span class="hex ${cls}"><span>${txt}</span></span>`;
 
@@ -86,18 +84,26 @@ function onScroll(){
   if (window.__setProgress) window.__setProgress(p);
   const idx = Math.min(CHAPTERS.length - 1, Math.floor(p * CHAPTERS.length));
   if (idx !== curCh){ curCh = idx; renderChapter(idx); }
-  hint.style.opacity = p < 0.03 ? 1 : 0;
-  const visible = r.bottom > 0 && r.top < window.innerHeight;
-  document.body.classList.toggle('past-story', !visible && r.bottom <= 0);
-  if (window.__sceneActive) window.__sceneActive(visible);
+  hint.style.opacity = p < 0.02 ? 1 : 0;
+  const after = window.scrollY - (story.offsetTop + story.offsetHeight - window.innerHeight);
+  const rest = document.documentElement.scrollHeight - window.innerHeight - (story.offsetTop + story.offsetHeight - window.innerHeight);
+  if (window.__setExtra) window.__setExtra(Math.min(1, Math.max(0, after / Math.max(1, rest))));
 }
 window.addEventListener('scroll', onScroll, { passive:true });
 window.addEventListener('resize', onScroll);
 onScroll();
 
-// ----- tech marquee -----
-const items = TECH.map(([c,n]) => `<span><i class="${c}"></i>${n}</span>`).join('');
-$('#track').innerHTML = items + items;
+// ----- tech stack (grouped, like the live portfolio) -----
+const STACK = {
+  'Frontend':[['fa-brands fa-html5','HTML5'],['fa-brands fa-css3-alt','CSS3'],['fa-brands fa-js','JavaScript'],['fa-brands fa-js','TypeScript'],['fa-brands fa-react','React'],['fa-brands fa-node-js','Node.js'],['fa-solid fa-wind','Tailwind CSS']],
+  'Backend':[['fa-brands fa-python','Python'],['fa-solid fa-flask','Flask'],['fa-brands fa-java','Java'],['fa-solid fa-database','MongoDB'],['fa-solid fa-database','MySQL'],['fa-solid fa-database','SQLite']],
+  'Mobile':[['fa-solid fa-mobile-screen-button','Flutter'],['fa-solid fa-fire','Firebase'],['fa-brands fa-react','React Native']],
+  'AI/ML & Data':[['fa-solid fa-brain','TensorFlow'],['fa-solid fa-robot','Whisper AI'],['fa-solid fa-eye','OpenCV'],['fa-solid fa-chart-line','PySpark'],['fa-solid fa-chart-bar','Power BI'],['fa-solid fa-file-excel','MS Excel']],
+  'Cloud & DevOps':[['fa-brands fa-microsoft','Azure'],['fa-brands fa-aws','AWS'],['fa-solid fa-cloud','Oracle Cloud'],['fa-brands fa-docker','Docker'],['fa-brands fa-git-alt','Git'],['fa-brands fa-github','GitHub'],['fa-solid fa-code-branch','GitHub Actions']],
+  'Dev Tools':[['fa-solid fa-code','VS Code'],['fa-brands fa-npm','NPM'],['fa-solid fa-terminal','Terminal']]
+};
+$('#stackGrid').innerHTML = Object.entries(STACK).map(([cat,list]) =>
+  `<div class="stack-cat"><h4>${cat}</h4><div class="stack-items">${list.map(([c,n])=>`<span><i class="${c}"></i>${n}</span>`).join('')}</div></div>`).join('');
 
 // ----- projects -----
 const grid = $('#projGrid');
@@ -112,15 +118,8 @@ let open = false;
 $('#moreBtn').addEventListener('click', e => {
   open = !open;
   grid.querySelectorAll('[data-more]').forEach(el => el.hidden = !open);
-  e.target.textContent = open ? 'Show fewer projects' : 'Show more projects';
+  e.target.textContent = open ? 'Show fewer projects ↑' : 'Show more projects →';
 });
-
-// ----- tabs -----
-document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
-  document.querySelectorAll('.pane').forEach(x => x.classList.remove('on'));
-  b.classList.add('on'); $('#'+b.dataset.t).classList.add('on');
-}));
 
 // ----- mobile menu -----
 const menu = $('#menu');
