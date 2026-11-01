@@ -1,4 +1,4 @@
-# Kalpa Das – 3D Scroll Portfolio (ReddGrow-style)
+# Kalpa Das – 3D Scroll Portfolio 
 
 A pencil-sketch 3D meadow (Three.js) sits behind the page. As you scroll, the camera
 moves through the meadow, a bee flies ahead, and at the end it dances in front of the hive.
