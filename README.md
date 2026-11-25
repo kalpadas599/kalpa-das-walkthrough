@@ -7,7 +7,6 @@ Your story appears on cards in front. After the story, normal sections follow
 
 Plain HTML + CSS + JavaScript. No npm, no build step. Three.js is included in `js/three.min.js`.
 
-
 ## What you need
 - A modern browser (Chrome, Edge, Firefox, Safari) with WebGL (all current ones have it)
 - Internet (only for icons and Google Fonts; the 3D scene itself works offline)
