@@ -2,8 +2,6 @@
 
 A pencil-sketch 3D meadow (Three.js) sits behind the page. As you scroll, the camera
 moves through the meadow, a bee flies ahead, and at the end it dances in front of the hive.
-Your story appears on cards in front. After the story, normal sections follow
-(projects, experience, pricing, contact).
 
 Plain HTML + CSS + JavaScript. No npm, no build step. Three.js is included in `js/three.min.js`.
 
